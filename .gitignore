@@ -2,6 +2,9 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+# Nepřenášet nastavení IDEA:
+**/*.iml
+**/.idea/*
 
 ### Eclipse ###
 .apt_generated
