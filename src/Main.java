@@ -8,12 +8,9 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        try(Scanner sc = new Scanner(new BufferedReader(new FileReader("deskovky.txt")))){
-            while(sc.hasNextLine()){
-                sc.nextLine();
-            }
-        } catch (NumberFormatException | IOException e) {
-            throw new RuntimeException(e);
-        }
+        EvidenceDeskovek evidenceDeskovek = new EvidenceDeskovek();
+        evidenceDeskovek.nactiDeskovkyZeSouboru("deskovky.txt");
+        DeskovkaForm deskovka = new DeskovkaForm(evidenceDeskovek);
+        deskovka.setVisible(true);
     }
 }

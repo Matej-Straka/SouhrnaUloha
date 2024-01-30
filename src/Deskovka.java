@@ -8,7 +8,12 @@ public class Deskovka {
         this.koupena = koupena;
         this.oblibenost = oblibenost;
     }
-
+    //kostruktor s jedním parametrem názvem
+    public Deskovka(String nazev){
+        this.nazev = nazev;
+        this.koupena = false;
+        this.oblibenost = 0;
+    }
     public String getNazev() {
         return nazev;
     }

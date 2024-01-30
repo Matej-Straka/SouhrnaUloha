@@ -1,0 +1,7 @@
+ahoj;false;1
+Y;false;2
+Z;true;1
+A;true;3
+B;false;2
+C;true;2
+D;false;3
