@@ -5,7 +5,3 @@ A;false;3
 B;false;2
 C;false;2
 D;false;3
-D;false;3
-D;false;3
-;false;1
-;false;1
