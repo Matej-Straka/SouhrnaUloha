@@ -35,11 +35,7 @@ public class DeskovkaForm extends JFrame {
                 zapisUdajeOAktualniDeskovceDoOkna();
         });
         uložitButton.addActionListener(e -> {
-            if(uložitButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0){
-                evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
-                DeskovkaIndex = evidenceDeskovek.getPocetDeskovek() - 1;
-                zapisUdajeOAktualniDeskovceDoOkna();
-            }
+
             if(evidenceDeskovek.getPocetDeskovek() > 0){
                 Deskovka deskovka = evidenceDeskovek.najdiDeskovku(DeskovkaIndex);
                 deskovka.setNazev(nazev.getText());
@@ -52,6 +48,11 @@ public class DeskovkaForm extends JFrame {
                     deskovka.setOblibenost(3);
                 }
                 evidenceDeskovek.ulozDeskovkyDoSouboru("deskovky.txt");
+            }
+            if(uložitButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0){
+                evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
+                DeskovkaIndex = evidenceDeskovek.getPocetDeskovek() - 1;
+                zapisUdajeOAktualniDeskovceDoOkna();
             }
         });
     }
