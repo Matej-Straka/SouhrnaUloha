@@ -22,7 +22,7 @@ public class DeskovkaForm extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         zapisUdajeOAktualniDeskovceDoOkna();
         dalšíButton.addActionListener(e -> {
-            if (dalšíButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0) {
+            if (evidenceDeskovek.getPocetDeskovek() == 0) {
                     evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
                     DeskovkaIndex = evidenceDeskovek.getPocetDeskovek() - 1;
                 } else {
@@ -35,6 +35,11 @@ public class DeskovkaForm extends JFrame {
                 zapisUdajeOAktualniDeskovceDoOkna();
         });
         uložitButton.addActionListener(e -> {
+            if(uložitButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0){
+                evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
+                DeskovkaIndex = evidenceDeskovek.getPocetDeskovek() - 1;
+                zapisUdajeOAktualniDeskovceDoOkna();
+            }
             if(evidenceDeskovek.getPocetDeskovek() > 0){
                 Deskovka deskovka = evidenceDeskovek.najdiDeskovku(DeskovkaIndex);
                 deskovka.setNazev(nazev.getText());
@@ -53,9 +58,11 @@ public class DeskovkaForm extends JFrame {
 
     private void zapisUdajeOAktualniDeskovceDoOkna(){
         if (DeskovkaIndex < evidenceDeskovek.getVelikostSeznamu() - 1) {
-            dalšíButton.setText("Další");
+            uložitButton.setText("Uložit");
+            dalšíButton.setEnabled(true);
         } else {
-            dalšíButton.setText("Přidat");
+            uložitButton.setText("Přidat");
+            dalšíButton.setEnabled(false);
         }
         if (DeskovkaIndex > 0) {
             předchozíButton.setEnabled(true);
