@@ -1,7 +1,7 @@
-ahoj;false;1
-Y;false;2
-Z;true;1
-A;true;3
+ahjoj;false;2
+Y;false;1
+Z;false;1
+A;false;3
 B;false;2
-C;true;2
+C;false;2
 D;false;3

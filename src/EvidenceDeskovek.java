@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,12 @@ public class EvidenceDeskovek {
                 String[] line = sc.nextLine().split(";");
                 seznamDeskovek.add(new Deskovka(line[0], line[1].equals("ano"), Integer.parseInt(line[2])));
             }
-        } catch (NumberFormatException | IOException e) {
-            throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "špatný format vstupního čísla " + e.getLocalizedMessage());
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "soubor nebyl nalezen " + e.getLocalizedMessage());
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "nastala chyba při čtení ze souboru " + e.getLocalizedMessage());
         }
     }
 }
