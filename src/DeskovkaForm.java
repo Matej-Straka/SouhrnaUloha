@@ -22,7 +22,12 @@ public class DeskovkaForm extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         zapisUdajeOAktualniDeskovceDoOkna();
         dalšíButton.addActionListener(e -> {
-                DeskovkaIndex++;
+            if (dalšíButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0) {
+                    evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
+                    DeskovkaIndex = evidenceDeskovek.getPocetDeskovek() - 1;
+                } else {
+                    DeskovkaIndex++;
+                }
                 zapisUdajeOAktualniDeskovceDoOkna();
         });
         předchozíButton.addActionListener(e -> {
@@ -48,9 +53,9 @@ public class DeskovkaForm extends JFrame {
 
     private void zapisUdajeOAktualniDeskovceDoOkna(){
         if (DeskovkaIndex < evidenceDeskovek.getVelikostSeznamu() - 1) {
-            dalšíButton.setEnabled(true);
+            dalšíButton.setText("Další");
         } else {
-            dalšíButton.setEnabled(false);
+            dalšíButton.setText("Přidat");
         }
         if (DeskovkaIndex > 0) {
             předchozíButton.setEnabled(true);
