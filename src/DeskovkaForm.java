@@ -22,16 +22,12 @@ public class DeskovkaForm extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         zapisUdajeOAktualniDeskovceDoOkna();
         dalšíButton.addActionListener(e -> {
-            if (DeskovkaIndex < evidenceDeskovek.getVelikostSeznamu() - 1) {
                 DeskovkaIndex++;
                 zapisUdajeOAktualniDeskovceDoOkna();
-            }
         });
         předchozíButton.addActionListener(e -> {
-            if (DeskovkaIndex > 0) {
                 DeskovkaIndex--;
                 zapisUdajeOAktualniDeskovceDoOkna();
-            }
         });
         uložitButton.addActionListener(e -> {
             if(evidenceDeskovek.getPocetDeskovek() > 0){
@@ -51,6 +47,16 @@ public class DeskovkaForm extends JFrame {
     }
 
     private void zapisUdajeOAktualniDeskovceDoOkna(){
+        if (DeskovkaIndex < evidenceDeskovek.getVelikostSeznamu() - 1) {
+            dalšíButton.setEnabled(true);
+        } else {
+            dalšíButton.setEnabled(false);
+        }
+        if (DeskovkaIndex > 0) {
+            předchozíButton.setEnabled(true);
+        } else {
+            předchozíButton.setEnabled(false);
+        }
         if(evidenceDeskovek.getPocetDeskovek() == 0){
            nazev.setText("");
            koupeno.setSelected(false);
