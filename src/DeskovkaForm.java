@@ -39,6 +39,7 @@ public class DeskovkaForm extends JFrame {
                     DeskovkaIndex++;
                 }
                 zapisUdajeOAktualniDeskovceDoOkna();
+            evidenceDeskovek.ulozDeskovkyDoSouboru("deskovky.txt");
         });
         předchozíButton.addActionListener(e -> {
                 DeskovkaIndex--;
