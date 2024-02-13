@@ -1,8 +1,4 @@
-ahjoj;false;2
+aaa;false;3
 Y;false;1
 Z;false;1
-A;false;3
-B;false;2
-C;false;2
-D;false;3
-h;true;2
+Aaa;false;3

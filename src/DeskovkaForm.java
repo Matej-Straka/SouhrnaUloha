@@ -10,13 +10,23 @@ public class DeskovkaForm extends JFrame {
     private JButton uložitButton;
     private JButton dalšíButton;
     private JPanel panel;
-
+    private JMenuBar menuBar = new JMenuBar();
+    private JMenu menu = new JMenu("Menu");
+    private JMenuItem uloz = new JMenuItem("Ulož");
+    private JMenuItem otevri = new JMenuItem("Otevři");
     private int DeskovkaIndex = 0;
     private EvidenceDeskovek evidenceDeskovek;
 
     public DeskovkaForm(EvidenceDeskovek evidenceDeskovek) {
         this.evidenceDeskovek = evidenceDeskovek;
         setContentPane(panel);
+        uloz.addActionListener(e -> evidenceDeskovek.ulozDeskovkyDoSouboru("deskovky.txt"));
+        uloz.setAccelerator(KeyStroke.getKeyStroke("ctrl S"));
+        otevri.addActionListener(e -> evidenceDeskovek.nactiDeskovkyZeSouboru("deskovky.txt"));
+        menu.add(uloz);
+        menu.add(otevri);
+        menuBar.add(menu);
+        setJMenuBar(menuBar);
         pack();
         setTitle("Deskové hry");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +57,6 @@ public class DeskovkaForm extends JFrame {
                 } else if (radio3.isSelected()) {
                     deskovka.setOblibenost(3);
                 }
-                evidenceDeskovek.ulozDeskovkyDoSouboru("deskovky.txt");
             }
             if(uložitButton.getText().equals("Přidat") || evidenceDeskovek.getPocetDeskovek() == 0){
                 evidenceDeskovek.pridejDeskovku(new Deskovka("", false, 1));
